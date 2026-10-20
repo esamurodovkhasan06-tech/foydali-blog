@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  category: string;
+  author: string;
+  pubDate: Date;
+}
+const { href, title, description, image, imageAlt, category, author, pubDate } = Astro.props;
+const dateLabel = pubDate.toLocaleDateString("uz-UZ", { year: "numeric", month: "long", day: "numeric" });
+---
+<article class="article-card">
+  <a class="card-image-link" href={href} tabindex="-1" aria-hidden="true">
+    <img class="card-image" src={image} alt={imageAlt} loading="lazy" />
+  </a>
+  <div class="card-content">
+    <span class="category-pill">{category}</span>
+    <h3><a href={href}>{title}</a></h3>
+    <p>{description}</p>
+    <div class="card-meta">
+      <span>{author}</span><span aria-hidden="true">·</span><time datetime={pubDate.toISOString()}>{dateLabel}</time>
+    </div>
+  </div>
+</article>
