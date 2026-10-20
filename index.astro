@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const articles = await getCollection("articles");
+const categories = [...new Set(articles.map((a) => a.data.category))].sort((a,b) => a.localeCompare(b, "uz"));
+const base = import.meta.env.BASE_URL;
+const descriptions = {
+  "Ta’lim": "O‘rganish, kitobxonlik va shaxsiy rivojlanish bo‘yicha tavsiyalar.",
+  "Salomatlik": "Sog‘lom turmush va kundalik farovonlikka oid umumiy tavsiyalar.",
+  "Raqamli savodxonlik": "Internetdan xavfsiz va oqilona foydalanish bo‘yicha qo‘llanmalar.",
+  "Jamiyat": "Mahalla, hamkorlik va kundalik hayotda foydali tashabbuslar."
+};
+---
+<BaseLayout title="Kategoriyalar" description="Foydali Blog maqolalarini mavzular bo‘yicha ko‘rib chiqing.">
+  <section class="page-hero"><div class="container"><span class="eyebrow">Mavzu tanlang</span><h1>Kategoriyalar</h1><p>Qiziqishingizga mos yo‘nalishni tanlang va yangi bilimlarni kashf eting.</p></div></section>
+  <section class="section"><div class="container category-grid">
+    {categories.map((category, index) => <a class="category-card" href={`${base}maqolalar/?kategoriya=${encodeURIComponent(category)}`}>
+      <span class="category-number">{String(index + 1).padStart(2, "0")}</span><h2>{category}</h2><p>{descriptions[category] ?? "Ushbu mavzudagi foydali maqolalar."}</p>
+      <span class="category-bottom">{articles.filter((a) => a.data.category === category).length} ta maqola <span aria-hidden="true">↗</span></span>
+    </a>)}
+  </div></section>
+</BaseLayout>
