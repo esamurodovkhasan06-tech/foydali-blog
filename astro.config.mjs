@@ -1,6 +1,7 @@
+
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://YOUR-USERNAME.github.io',
-  base: '/',
+  site: 'https://esamurodovkhasan06-tech.github.io',
+  base: '/foydali-blog',
 });
