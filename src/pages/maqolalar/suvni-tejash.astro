@@ -1,0 +1,89 @@
+
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Suvni tejash — kelajakni asrash"
+  description="Kundalik hayotda suvni tejash va tabiatni asrash bo‘yicha foydali tavsiyalar."
+>
+  <article class="container article-page">
+    <a class="back-link" href="../">
+      ← Barcha maqolalarga qaytish
+    </a>
+
+    <p class="article-category">Jamiyat</p>
+
+    <h1>Suvni tejash — kelajakni asrash</h1>
+
+    <p class="article-intro">
+      Suv — hayot manbai. Uni tejash har birimizning kundalik
+      vazifamizdir.
+    </p>
+
+    <div class="article-body">
+      <h2>Nima uchun suvni tejash kerak?</h2>
+      <p>
+        Toza suv insonlar, hayvonlar va o‘simliklar hayoti uchun
+        juda muhim. Suvdan isrofgarchiliksiz foydalanish tabiiy
+        resurslarni asrashga yordam beradi.
+      </p>
+
+      <h2>Suvni tejashning oddiy usullari</h2>
+      <ul>
+        <li>Tish yuvayotganda jo‘mrakni yopib turing.</li>
+        <li>Suv oqayotgan jo‘mrak va quvurlarni ta’mirlang.</li>
+        <li>Idish yuvishda suvni ortiqcha oqizmang.</li>
+        <li>O‘simliklarni kerakli miqdorda sug‘oring.</li>
+      </ul>
+
+      <h2>Xulosa</h2>
+      <p>
+        Har bir kichik qadam muhim. Suvni bugun tejash orqali
+        kelajak avlodlar uchun ham bu bebaho boylikni asrashga
+        hissa qo‘shamiz.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-page {
+    max-width: 850px;
+    padding-top: 48px;
+    padding-bottom: 72px;
+  }
+
+  .back-link {
+    color: var(--green, #14532d);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .article-category {
+    margin-top: 32px;
+    color: var(--green, #14532d);
+    font-weight: 600;
+  }
+
+  .article-page h1 {
+    color: var(--ink, #17251c);
+    line-height: 1.25;
+  }
+
+  .article-intro {
+    color: var(--muted, #69766d);
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  .article-body {
+    margin-top: 32px;
+    line-height: 1.9;
+  }
+
+  .article-body h2 {
+    margin-top: 28px;
+    color: var(--ink, #17251c);
+  }
+</style>
