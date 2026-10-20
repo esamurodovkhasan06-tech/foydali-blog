@@ -18,6 +18,12 @@ const articles = [
     description: "Atrof-muhitni asrash uchun kundalik hayotda amalga oshirish mumkin bo‘lgan oddiy qadamlar.",
     category: "Jamiyat",
   },
+  {
+    title: "Suvni tejash — kelajakni asrash",
+    description: "Suvni tejash va tabiatni asrash uchun kundalik hayotda qo‘llash mumkin bo‘lgan oddiy tavsiyalar.",
+    category: "Jamiyat",
+    url: "suvni-tejash/",
+  },
 ];
 ---
 
@@ -33,10 +39,36 @@ const articles = [
       {articles.map((article) => (
         <article class="article-card">
           <p>{article.category}</p>
-          <h2>{article.title}</h2>
+          <h2>
+            {article.url ? (
+              <a href={article.url}>{article.title}</a>
+            ) : (
+              article.title
+            )}
+          </h2>
           <p>{article.description}</p>
+          {article.url && (
+            <a href={article.url}>Maqolani o‘qish →</a>
+          )}
         </article>
       ))}
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .article-card h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-card h2 a:hover {
+    color: var(--green, #14532d);
+  }
+
+  .article-card > a {
+    color: var(--green, #14532d);
+    font-weight: 600;
+    text-decoration: none;
+  }
+</style>
