@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+}
+const { title, description, canonical } = Astro.props;
+const site = Astro.site ?? new URL("https://example.com");
+const path = Astro.url.pathname;
+const canonicalUrl = canonical ?? new URL(path, site).toString();
+const pageTitle = title === "Foydali Blog" ? title : `${title} | Foydali Blog`;
+---
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="theme-color" content="#14532d" />
+    <meta property="og:site_name" content="Foydali Blog" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Asosiy mazmunga o‘tish</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href={import.meta.env.BASE_URL} aria-label="Foydali Blog bosh sahifasi">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>Foydali<span class="brand-light"> Blog</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+          <span class="sr-only">Menyuni ochish</span>
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="main-nav" class="main-nav" aria-label="Asosiy navigatsiya">
+          <a href={import.meta.env.BASE_URL}>Bosh sahifa</a>
+          <a href={`${import.meta.env.BASE_URL}maqolalar/`}>Maqolalar</a>
+          <a href={`${import.meta.env.BASE_URL}kategoriyalar/`}>Kategoriyalar</a>
+          <a href={`${import.meta.env.BASE_URL}biz-haqimizda/`}>Biz haqimizda</a>
+          <a class="nav-contact" href={`${import.meta.env.BASE_URL}aloqa/`}>Aloqa <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href={import.meta.env.BASE_URL}>
+            <span class="brand-mark" aria-hidden="true">F</span>
+            <span>Foydali<span class="brand-light"> Blog</span></span>
+          </a>
+          <p>Bilim ulashamiz, foyda keltiramiz. Jamiyat uchun sodda va amaliy maqolalar.</p>
+        </div>
+        <div>
+          <h2 class="footer-heading">Bo‘limlar</h2>
+          <a href={`${import.meta.env.BASE_URL}maqolalar/`}>Barcha maqolalar</a>
+          <a href={`${import.meta.env.BASE_URL}kategoriyalar/`}>Kategoriyalar</a>
+          <a href={`${import.meta.env.BASE_URL}biz-haqimizda/`}>Biz haqimizda</a>
+        </div>
+        <div>
+          <h2 class="footer-heading">Bog‘lanish</h2>
+          <a href={`${import.meta.env.BASE_URL}aloqa/`}>Aloqa sahifasi</a>
+          <p class="footer-note">Maqola va takliflaringizni bizga yuboring.</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© {new Date().getFullYear()} Foydali Blog</span>
+        <span>Mehr bilan, bilim uchun.</span>
+      </div>
+    </footer>
+    <script>
+      const menuButton = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("#main-nav");
+      menuButton?.addEventListener("click", () => {
+        const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!isOpen));
+        nav?.classList.toggle("is-open", !isOpen);
+      });
+    </script>
+  </body>
+</html>
