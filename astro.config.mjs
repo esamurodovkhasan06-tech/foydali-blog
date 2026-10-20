@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 // site  = https://<GITHUB-USERNAME>.github.io
 // base  = /<REPOZITORIYA-NOMI>   (agar repozitoriya nomi <username>.github.io boʻlsa, base: '/' qiling)
 export default defineConfig({
-  site: 'https://USERNAME.github.io',
+  site: 'https://esamurodovkhasan06-tech.github.io',
   base: '/foydali-blog',
   trailingSlash: 'always',
   integrations: [sitemap()],
