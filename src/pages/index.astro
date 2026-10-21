@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 const articles = (await getCollection("articles")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const featured = articles.find((a) => a.data.featured) ?? articles[0];
 const latest = articles.filter((a) => a.id !== featured?.id).slice(0, 3);
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 <BaseLayout title="Foydali Blog" description="Kundalik hayot, ta’lim, salomatlik va jamiyat haqida foydali, sodda va amaliy maqolalar.">
   <section class="hero">
@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL;
         <div class="feature-caption">
           <span class="feature-label">Tavsiya etamiz</span>
           <span class="feature-category">{featured.data.category}</span>
-          <h2><a href={`${base}maqolalar/${featured.id}/`}>{featured.data.title}</a></h2>
+         <h2><a href={`${base}/maqolalar/${featured.id}/`}>{featured.data.title}</a></h2>
           <p>{featured.data.description}</p>
           <a class="feature-link" href={`${base}maqolalar/${featured.id}/`}>Maqolani o‘qish <span aria-hidden="true">↗</span></a>
         </div>
