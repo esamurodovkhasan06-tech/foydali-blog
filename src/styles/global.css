@@ -153,3 +153,118 @@ h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif;line-height:1.18;letter-spacin
 @media(max-width:850px){.main-nav{gap:17px}.hero-grid{gap:30px}.hero-feature{height:420px}.hero h1{font-size:43px}.article-grid{gap:16px}.card-content{padding:16px}.card-content h3{font-size:16px}.card-meta{flex-wrap:wrap}.about-layout,.contact-layout{gap:32px}}
 @media(max-width:680px){.container,.container-narrow{width:min(100% - 32px,560px)}.site-header{height:70px}.menu-toggle{display:block}.main-nav{display:none;position:absolute;top:69px;left:0;right:0;background:white;border-bottom:1px solid var(--line);padding:14px 20px 20px;box-shadow:0 12px 20px #102c160b;align-items:stretch;gap:0}.main-nav.is-open{display:flex;flex-direction:column}.main-nav a{padding:12px 5px}.main-nav .nav-contact{margin-top:8px;text-align:center}.hero{padding:42px 0 48px}.hero-grid{grid-template-columns:1fr;gap:32px}.hero h1{font-size:42px;letter-spacing:-1.8px}.hero-copy>p{font-size:14px}.hero-feature{height:420px}.feature-caption{padding:23px}.feature-caption h2{font-size:24px}.section{padding:53px 0}.section-heading{align-items:start;flex-direction:column;margin-bottom:24px}.section-heading h2{font-size:28px}.article-grid{grid-template-columns:1fr;gap:17px}.card-image-link{aspect-ratio:1.9}.card-content>p{min-height:0}.callout{align-items:flex-start;flex-direction:column;padding:25px;gap:15px}.callout h2{font-size:22px}.button-light{white-space:normal}.page-hero{padding:47px 0 42px}.page-hero h1{font-size:37px}.filter-panel{grid-template-columns:1fr;gap:9px;padding:10px}.search-field input,.filter-select select{height:42px}.category-grid{grid-template-columns:1fr}.category-card{padding:22px}.about-layout,.contact-layout{grid-template-columns:1fr;gap:30px}.about-main h2,.contact-side h2{font-size:28px}.post-header{padding-top:30px}.post-header h1{font-size:35px}.post-description{font-size:14px}.post-cover{width:100%;margin-bottom:30px}.post-cover img{border-radius:0;max-height:340px}.prose{font-size:15px}.prose h2{font-size:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:30px 20px}.footer-grid>div:first-child{grid-column:1/-1}.footer-bottom{font-size:9px}}
 @media(max-width:380px){.hero h1{font-size:36px}.hero-feature{height:390px}.feature-caption h2{font-size:21px}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.footer-bottom{flex-direction:column}}
+
+/* Foydali Blog — maqola kartalarining yangilangan dizayni */
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e3ebe4;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(20, 83, 45, 0.035);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  border-color: #c9ddcc;
+  box-shadow: 0 16px 32px rgba(20, 83, 45, 0.10);
+}
+
+.card-image-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #edf6ee, #f8faf7);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.article-card:hover .card-image {
+  transform: scale(1.045);
+}
+
+.card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.category-pill {
+  align-self: flex-start;
+  padding: 6px 10px;
+  border: 1px solid #e0eee2;
+  border-radius: 999px;
+  background: #eef7ef;
+  color: #14532d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.card-content h3 {
+  margin: 15px 0 10px;
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: -0.45px;
+}
+
+.card-content h3 a {
+  transition: color 0.2s ease;
+}
+
+.card-content h3 a:hover {
+  color: #166534;
+}
+
+.card-content > p {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  color: #69766d;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.card-meta {
+  flex-wrap: wrap;
+  gap: 7px 9px;
+  margin-top: 20px;
+  padding-top: 15px;
+  color: #7b877e;
+  font-size: 11px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-card,
+  .card-image,
+  .card-content h3 a {
+    transition: none;
+  }
+
+  .article-card:hover,
+  .article-card:hover .card-image {
+    transform: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .card-content {
+    padding: 19px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+  }
+}
+
