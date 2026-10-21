@@ -1,6 +1,7 @@
 
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import approvedArticles from "../../data/approved-articles.json";
 
 const articles = [
   {
@@ -18,12 +19,6 @@ const articles = [
     description: "Atrof-muhitni asrash uchun kundalik hayotda amalga oshirish mumkin bo‘lgan oddiy qadamlar.",
     category: "Jamiyat",
   },
-  {
-    title: "Suvni tejash — kelajakni asrash",
-    description: "Suvni tejash va tabiatni asrash uchun kundalik hayotda qo‘llash mumkin bo‘lgan oddiy tavsiyalar.",
-    category: "Jamiyat",
-    url: "suvni-tejash/",
-  },
 ];
 ---
 
@@ -39,17 +34,23 @@ const articles = [
       {articles.map((article) => (
         <article class="article-card">
           <p>{article.category}</p>
+          <h2>{article.title}</h2>
+          <p>{article.description}</p>
+        </article>
+      ))}
+
+      {approvedArticles.map((article) => (
+        <article class="article-card">
+          <p>{article.category}</p>
           <h2>
-            {article.url ? (
-              <a href={article.url}>{article.title}</a>
-            ) : (
-              article.title
-            )}
+            <a href={`${import.meta.env.BASE_URL}/maqolalar/${article.slug}/`}>
+              {article.title}
+            </a>
           </h2>
           <p>{article.description}</p>
-          {article.url && (
-            <a href={article.url}>Maqolani o‘qish →</a>
-          )}
+          <a href={`${import.meta.env.BASE_URL}/maqolalar/${article.slug}/`}>
+            Maqolani o‘qish →
+          </a>
         </article>
       ))}
     </div>
