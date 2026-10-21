@@ -43,7 +43,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       </div>
       <div class="article-grid">
         {latest.map((article) => <ArticleCard
-          href={`${base}maqolalar/${article.id}/`}
+          href={`${base}/maqolalar/${article.id}/`}
           title={article.data.title}
           description={article.data.description}
           image={article.data.image}
