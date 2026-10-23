@@ -18,67 +18,16 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       esselar saytda e’lon qilinadi.
     </p>
 
-    <form
-      action="https://docs.google.com/forms/"
-      method="get"
-      style="display: grid; gap: 18px; margin-top: 32px;"
-    >
-      <label>
-        Ism va familiyangiz
-        <input
-          type="text"
-          name="author"
-          required
-          placeholder="Ism va familiyangizni kiriting"
-          style="display: block; width: 100%; box-sizing: border-box; margin-top: 8px; padding: 12px; border: 1px solid #d5ded7; border-radius: 8px;"
-        />
-      </label>
-
-      <label>
-        Elektron pochtangiz
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="example@gmail.com"
-          style="display: block; width: 100%; box-sizing: border-box; margin-top: 8px; padding: 12px; border: 1px solid #d5ded7; border-radius: 8px;"
-        />
-      </label>
-
-      <label>
-        Esse sarlavhasi
-        <input
-          type="text"
-          name="title"
-          required
-          placeholder="Essengizga sarlavha bering"
-          style="display: block; width: 100%; box-sizing: border-box; margin-top: 8px; padding: 12px; border: 1px solid #d5ded7; border-radius: 8px;"
-        />
-      </label>
-
-      <label>
-        Esse matni
-        <textarea
-          name="essay"
-          required
-          rows="12"
-          placeholder="Essengiz matnini shu yerga yozing..."
-          style="display: block; width: 100%; box-sizing: border-box; margin-top: 8px; padding: 12px; border: 1px solid #d5ded7; border-radius: 8px; font: inherit;"
-        ></textarea>
-      </label>
-
-      <label style="display: flex; gap: 10px; align-items: flex-start; line-height: 1.6;">
-        <input type="checkbox" name="consent" required />
-        <span>Esseni ko‘rib chiqish va ma’qullangan taqdirda saytda e’lon qilish uchun yuborishga roziman.</span>
-      </label>
-
-      <button
-        type="submit"
-        style="padding: 14px 20px; border: 0; border-radius: 8px; background: #14532d; color: white; font-size: 16px; cursor: pointer;"
-      >
-        Esseni yuborish
-      </button>
-    </form>
+    <div style="margin-top: 32px;">
+  <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLScVQCOCf6y1-62n0wAUNoE65oWSd-tVJWsOFI4VZ-YJOdG_Hg/viewform?embedded=true"
+    title="Foydali Blog — Esse yuborish formasi"
+    width="100%"
+    height="1400"
+    style="border: 0; border-radius: 12px;"
+    loading="lazy"
+  ></iframe>
+</div>
 
     <p style="margin-top: 20px; color: #69766d; font-size: 14px;">
       Eslatma: esse avval tahririyat tomonidan tekshiriladi.
