@@ -24,10 +24,13 @@ export const getCategory = (slug: string) => {
   return found;
 };
 
+
 export const NAV = [
   { href: '/', label: 'Bosh sahifa' },
   { href: '/maqolalar/', label: 'Maqolalar' },
+  { href: '/esse/', label: 'Esse' },
   { href: '/kategoriyalar/', label: 'Kategoriyalar' },
   { href: '/biz-haqimizda/', label: 'Biz haqimizda' },
   { href: '/aloqa/', label: 'Aloqa' },
 ];
+
